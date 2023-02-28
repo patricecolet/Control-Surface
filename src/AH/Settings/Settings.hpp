@@ -75,6 +75,11 @@ using ANALOG_FILTER_TYPE = uint16_t;
 /// The debounce time for momentary push buttons in milliseconds.
 constexpr unsigned long BUTTON_DEBOUNCE_TIME = 25; // milliseconds
 
+// Adafruit freetouch
+
+constexpr unsigned long QTOUCH_BUTTON_DEBOUNCE_TIME = 200; // milliseconds
+constexpr unsigned long QTOUCH_BUTTON_THRESHOLD = 600; // milliseconds
+
 /// The time in microseconds to wait for lines of multiplexers and scanning
 /// matrices to settle before reading the value.  
 /// Has no effect on AVR.

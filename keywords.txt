@@ -159,6 +159,7 @@ SysExMessage	KEYWORD1
 ######################
 
 CCButton	KEYWORD1
+CCQTouchButton	KEYWORD1
 CCButtonLatched	KEYWORD1
 CCButtonLatching	KEYWORD1
 CCButtonMatrix	KEYWORD1

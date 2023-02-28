@@ -33,6 +33,8 @@
 #include <MIDI_Outputs/CCButtons.hpp>
 #include <MIDI_Outputs/CCIncrementDecrementButtons.hpp>
 
+#include <MIDI_Outputs/CCQTouchButton.hpp>
+
 #include <MIDI_Outputs/CCPotentiometer.hpp>
 
 #include <MIDI_Outputs/NoteButton.hpp>
