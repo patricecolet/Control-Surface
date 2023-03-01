@@ -34,8 +34,8 @@ USBMIDI_Interface midi;
 
 // Instantiate a CCButton object
 CCQTouchButton button {
-  // Push button on pin 5:
-  5,
+  // Push button on pin A0
+  A0,
   // General Purpose Controller #1 on MIDI channel 1:
   {MIDI_CC::General_Purpose_Controller_1, CHANNEL_1},
 };
