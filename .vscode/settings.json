@@ -3,7 +3,14 @@
         "*.axbm": "cpp",
         "*.ipp": "cpp",
         "*.tcc": "cpp",
-        "*.dox": "cpp"
+        "*.dox": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp"
     },
     "editor.minimap.maxColumn": 80,
     "editor.minimap.renderCharacters": false,
