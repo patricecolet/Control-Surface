@@ -32,6 +32,11 @@
 // Instantiate a MIDI over USB interface.
 USBMIDI_Interface midi;
 
+// button pin for calibration pushbutton 
+const int buttonPin = 2;
+// variables will change:
+int buttonState = HIGH;         // variable for reading the pushbutton status
+
 // Instantiate a CCButton object
 CCQTouchButton button {
   // Push button on pin A0
@@ -42,8 +47,16 @@ CCQTouchButton button {
 
 void setup() {
   Control_Surface.begin(); // Initialize Control Surface
+  // Initialize calibration pushbutton
+  pinMode(buttonPin, INPUT);
 }
 
 void loop() {
   Control_Surface.loop(); // Update the Control Surface
+  // read the state of the pushbutton value:
+  buttonState = digitalRead(buttonPin);
+  if (buttonState == LOW){
+    button.calibrage();   
+  }
+
 }

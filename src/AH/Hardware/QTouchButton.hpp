@@ -8,9 +8,11 @@ AH_DIAGNOSTIC_WERROR() // Enable errors on warnings
 #include <AH/Hardware/ExtendedInputOutput/ExtendedInputOutput.hpp>
 #include <AH/Settings/SettingsWrapper.hpp>
 
-#include <AH/Adafruit_Freetouch/adafruit_ptc.h>
+#include <AH/Adafruit_Freetouch/Adafruit_FreeTouch.h>
 
 BEGIN_AH_NAMESPACE
+
+//Adafruit_FreeTouch callback (Adafruit_FreeTouch Qt);
 
 /**
  * @brief   A class for reading and debouncing buttons and switches.
@@ -35,20 +37,25 @@ class QTouchButton {
      *          The digital pin to read from. The internal pull-up resistor
      *          will be enabled when `begin` is called.
      */
+
     QTouchButton(pin_t pin);
+    
 
     /// @brief   Initialize (enable the internal pull-up resistor).
-    bool begin();
+    void begin();
 
     // Adafruit Freetouch
-    uint16_t measure(void);
-    uint16_t measureRaw(void);
+//    uint16_t measure(void);
+//    uint16_t measureRaw(void);
 
     /**
      * @brief   Invert the input state of this button
      *          (button pressed is `HIGH` instead of `LOW`).
      */
     void invert();
+    
+    // calibration fuction
+    void calibrate();
 
     /// @brief   An enumeration of the different states a button can be in.
     enum State {
@@ -129,7 +136,6 @@ class QTouchButton {
 
   private:
     pin_t pin;
-    int qt_floor;
 
     struct InternalState {
         InternalState()
@@ -142,31 +148,15 @@ class QTouchButton {
         unsigned long prevBounceTime;
     } state;
 
-    // Adafruit Freetouch
-  struct adafruit_ptc_config config;
-
-  void ptcInitSettings(void);
-  void ptcConfigIOpin(void);
-  uint16_t startPtcAcquire(void);
-
-  int getYLine(void);
-  void selectYLine(void);
-  void setOversampling(oversample_t lvl);
-  void setSeriesResistor(series_resistor_t res);
-  void setFreqHopping(freq_mode_t fh, freq_hop_t hops = FREQ_HOP_1);
-  void setCompCap(uint16_t cc);
-  void setIntCap(uint8_t ic);
-
-  void snapshotRegsAndPrint(uint32_t base, uint8_t numregs);
-  void printHex(uint8_t h, boolean newline);
-  void printPTCregs(uint32_t base, uint8_t *regs, uint8_t num);
-// Adafruit freetouch end
-
     /// Edit this in Settings.hpp
     /// @see    QTOUCH_BUTTON_DEBOUNCE_TIME
     /// @see    QTOUCH_BUTTON_THRESHOLD
     static unsigned long debounceTime;
     static unsigned long threshold;
+
+    //instancier qt
+    Adafruit_FreeTouch qt;
+    int qt_floor;
 };
 
 END_AH_NAMESPACE

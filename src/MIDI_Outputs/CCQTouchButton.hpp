@@ -35,6 +35,10 @@ class CCQTouchButton : public MIDIQTouchButton<DigitalCCSender> {
      */
     CCQTouchButton(pin_t pin, MIDIAddress address, const DigitalCCSender &sender = {})
         : MIDIQTouchButton(pin, address, sender) {}
+
+
+    // calibrate function
+    void calibrage(); 
 };
 
 END_CS_NAMESPACE
